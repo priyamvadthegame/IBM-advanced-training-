@@ -9,6 +9,7 @@ public class firstSpringAppMain {
 		AbstractApplicationContext iocContainer=new ClassPathXmlApplicationContext("Beans.xml");
 		AcoountSpringFirstApp account=(AcoountSpringFirstApp)iocContainer.getBean("accountCreator");
 		System.out.println(account);
+		iocContainer.registerShutdownHook();
 	}
 
 }

@@ -7,7 +7,7 @@ http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 <bean id="accountCreator" class="firstSpringApp.AcoountSpringFirstApp"
-			scope="prototype">
+scope="prototype" init-method="initMethod" destroy-method="onDestroy">
 		<property name="name" value="Hemant"/>
 		<property name="id" value="Hemant2510"/>
 		<property name="balance" value="5000"/>
