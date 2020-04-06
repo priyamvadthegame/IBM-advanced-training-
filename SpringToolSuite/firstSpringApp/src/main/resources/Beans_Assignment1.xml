@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+<bean id="item1" class="firstSpringApp.Item"
+			scope="prototype">
+		
+		<property name="name" value="Shoe"/>
+		<property name="price" value="500.0"/>
+	</bean>
+<bean id="Order_1" class="firstSpringApp.Order"
+			scope="prototype">
+		
+		<property name="id" value="Order1"/>
+		<property name="item" ref="item1"/>
+	</bean>
+	<bean id="item2" class="firstSpringApp.Item"
+			scope="prototype">
+		
+		<property name="name" value="Shirt"/>
+		<property name="price" value="1000.0"/>
+	</bean>
+<bean id="Order_2" class="firstSpringApp.Order"
+			scope="prototype">
+		
+		<property name="id" value="Order2"/>
+		<property name="item" ref="item2"/>
+	</bean>
+	<bean id="item3" class="firstSpringApp.Item"
+			scope="prototype">
+		
+		<property name="name" value="TShirt"/>
+		<property name="price" value="800.32"/>
+	</bean>
+<bean id="Order_3" class="firstSpringApp.Order"
+			scope="prototype">
+		
+		<property name="id" value="Order3"/>
+		<property name="item" ref="item3"/>
+	</bean>
+	<bean id="item4" class="firstSpringApp.Item"
+			scope="prototype">
+		
+		<property name="name" value="Saree"/>
+		<property name="price" value="600.0"/>
+	</bean>
+<bean id="Order_4" class="firstSpringApp.Order"
+			scope="prototype">
+		
+		<property name="id" value="Order4"/>
+		<property name="item" ref="item4"/>
+	</bean>
+	<bean id="item5" class="firstSpringApp.Item"
+			scope="prototype">
+		
+		<property name="name" value="Skirts"/>
+		<property name="price" value="200.0"/>
+	</bean>
+<bean id="Order_5" class="firstSpringApp.Order"
+			scope="prototype">
+		
+		<property name="id" value="Order5"/>
+		<property name="item" ref="item5"/>
+	</bean>
+</beans>
