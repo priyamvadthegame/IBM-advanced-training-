@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+<bean id="chatroom1" class="firstSpringApp.ChatRoomSpring"
+			scope="prototype">
+		<property name="id" value="Sports"/>
+		<property name="userList">
+		<list>
+		<value>Anand</value>
+		<value>Abhishek</value>
+		<value>Priyamvad</value>
+		<value>hemant</value>
+		</list>
+		</property>
+		<property name="messageList">
+		<list>
+		<value>Hello</value>
+		<value>Hi</value>
+		<value>Bye</value>
+		<value>TakeCare</value>
+		</list>
+		</property>
+		
+	</bean>
+	<bean id="chatroom2" class="firstSpringApp.ChatRoomSpring"
+			scope="prototype">
+		<property name="id" value="Music"/>
+		<property name="userList">
+		<list>
+		<value>Arijit</value>
+		<value>Anu</value>
+		<value>Sunidhi</value>
+		<value>Kumar sanu</value>
+		</list>
+		</property>
+		<property name="messageList">
+		<list>
+		<value>Hello</value>
+		<value>Hi</value>
+		<value>Bye</value>
+		<value>TakeCare</value>
+		</list>
+		</property>
+		
+	</bean>
+	<bean id="chatroom3" class="firstSpringApp.ChatRoomSpring"
+			scope="prototype">
+		<property name="id" value="Gaming"/>
+		<property name="userList">
+		<list>
+		<value>Mortal</value>
+		<value>SikhWarrior</value>
+		<value>Shroud</value>
+		<value>Dizzyt</value>
+		</list>
+		</property>
+		<property name="messageList">
+		<list>
+		<value>Hello</value>
+		<value>Hi</value>
+		<value>Bye</value>
+		<value>TakeCare</value>
+		</list>
+		</property>
+		
+	</bean>
+</beans>
