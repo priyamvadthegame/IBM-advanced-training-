@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+<bean id="department" class="firstSpringApp.DepartmentBean">
+		<property name="name" value="Electroncs"/>
+		<property name="id" value="CSE1001"/>
+		
+	</bean>
+	<bean id="department1" class="firstSpringApp.DepartmentBean">
+		<property name="name" value="Computer"/>
+		<property name="id" value="CSE1111"/>
+		
+	</bean>
+
+
+
+<bean id="EmployeeCreator" class="firstSpringApp.EmployeBean">
+		<property name="name" value="Hemant"/>
+		<property name="id" value="Hemant2510"/>
+		
+	</bean>
+</beans>
