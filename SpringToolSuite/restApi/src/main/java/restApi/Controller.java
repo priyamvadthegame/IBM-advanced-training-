@@ -204,7 +204,7 @@ public class Controller {
 			{
 				Advertisement adv= user.getAdvertisementList().stream().filter((Advertisement advertisement)->advertisement.getName().equals(advName)).collect(Collectors.toList()).get(0);
 				user.deleteAdvertisementList(adv);
-				return "advertisement adv "+adv+" from user "+user+" deleted succesfully";
+				return "advertisement adv "+adv+" from user "+user.getUserName()+" deleted succesfully";
 			}
 		}
 	}
