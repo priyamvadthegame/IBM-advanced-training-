@@ -1,0 +1,39 @@
+pipeline {
+	agent any
+	tools { 
+       
+        jdk 'jdk1.8' 
+    	}
+	stages {
+		stage('Clean stage') {
+			steps {
+				dir("ChatApp") {
+					withMaven(maven: 'maven_3_6_1') {
+						bat 'mvn clean'
+					}
+				}
+			}
+		}
+		
+		stage('Compile stage') {
+			steps {
+				dir("ChatApp") {
+					withMaven(maven: 'maven_3_6_1') {
+						bat 'mvn compile'
+					}
+				}
+			}
+		}
+		
+		stage('Install stage') {
+			steps {
+				dir("ChatApp") {
+					withMaven(maven: 'maven_3_6_1') {
+						bat 'mvn install'
+					}
+				}
+			}
+		}
+		
+	}
+}
