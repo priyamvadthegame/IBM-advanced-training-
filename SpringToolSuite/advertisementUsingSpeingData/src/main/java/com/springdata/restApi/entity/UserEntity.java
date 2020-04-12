@@ -1,13 +1,17 @@
 package com.springdata.restApi.entity;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "USERS_MASTER")
-public class User {
+public class UserEntity {
 
 	
 	@Id
@@ -37,11 +41,15 @@ public class User {
 	@Column(name="Session_ID")
 	private String sessionId;
 	
-	public User() {
+	@OneToMany
+	@JoinColumn(name = "User_Id")
+	private Set<AdvertisementEntity> advertisementEntities;
+	
+	public UserEntity() {
 		this.sessionId="";
 	}
 
-	public User(long id, String userName, String firstName, String lastName, String password, String email,
+	public UserEntity(long id, String userName, String firstName, String lastName, String password, String email,
 			long phone) {
 		super();
 		this.id = id;
@@ -119,6 +127,15 @@ public class User {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
+
+	public Set<AdvertisementEntity> getAdvertisementEntities() {
+		return advertisementEntities;
+	}
+
+	public void setAdvertisementEntities(Set<AdvertisementEntity> advertisementEntities) {
+		this.advertisementEntities = advertisementEntities;
+	}
 
 	@Override
 	public String toString() {
@@ -134,7 +151,7 @@ public class User {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		UserEntity other = (UserEntity) obj;
 		if (id != other.id)
 			return false;
 		return true;

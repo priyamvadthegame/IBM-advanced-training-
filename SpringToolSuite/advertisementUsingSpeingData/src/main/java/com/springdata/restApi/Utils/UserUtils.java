@@ -4,24 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-import com.springdata.restApi.entity.User;
+import com.springdata.restApi.entity.UserEntity;
 
 public class UserUtils {
 	
-	public static List<com.springdata.restApi.json.User> convertUserEntityListToUserList(List<User> userEntityList) {
+	public static List<com.springdata.restApi.json.User> convertUserEntityListToUserList(List<UserEntity> userEntityList) {
 		List<com.springdata.restApi.json.User> userList = new ArrayList<com.springdata.restApi.json.User>();
-		Consumer<User> consumer = ((User userEntity)->userList.add(convertUserEntityToUser(userEntity)));
+		Consumer<UserEntity> consumer = ((UserEntity userEntity)->userList.add(convertUserEntityToUser(userEntity)));
 		userEntityList.stream().forEach(consumer);
 		return userList;
 	}
 	
-	public static com.springdata.restApi.json.User convertUserEntityToUser(User userEntity) {
+	public static com.springdata.restApi.json.User convertUserEntityToUser(UserEntity userEntity) {
 		return new com.springdata.restApi.json.User(userEntity.getId(), userEntity.getUserName(), 
 				userEntity.getFirstName(), userEntity.getLastName(),userEntity.getPassword(),userEntity.getEmail(),userEntity.getPhone());
 	}
 
-	public static User convertUserToUserEntity(com.springdata.restApi.json.User user) {
-		return new User(user.getId(), user.getUserName(), 
+	public static UserEntity convertUserToUserEntity(com.springdata.restApi.json.User user) {
+		return new UserEntity(user.getId(), user.getUserName(), 
 				user.getFirstName(), user.getLastName(),user.getPassword(),user.getEmail(),user.getPhone());
 	}
 }
