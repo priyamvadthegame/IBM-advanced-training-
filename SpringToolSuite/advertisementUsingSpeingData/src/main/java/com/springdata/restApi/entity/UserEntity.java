@@ -45,6 +45,10 @@ public class UserEntity {
 	@JoinColumn(name = "User_Id")
 	private Set<AdvertisementEntity> advertisementEntities;
 	
+	@OneToMany
+	@JoinColumn(name = "from_user")
+	private Set<MessageEntity> messageSet;
+	
 	public UserEntity() {
 		this.sessionId="";
 	}

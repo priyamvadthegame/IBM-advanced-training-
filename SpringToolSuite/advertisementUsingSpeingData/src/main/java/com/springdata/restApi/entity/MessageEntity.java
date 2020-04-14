@@ -1,15 +1,36 @@
-package com.springdata.restApi.json;
+package com.springdata.restApi.entity;
 
-public class Message {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.springdata.restApi.json.Advertisement;
+import com.springdata.restApi.json.User;
+
+@Entity
+@Table(name = "messages")
+public class MessageEntity {
+	
+	@Id
+	@Column(name = "message_id")
 	private long id;
+	
+	@Column(name = "message_content")
 	private String message;
-	private User userSendingMessage;
-	private Advertisement forAdvertisement;
-	public Message() {
+	
+	@ManyToOne
+	private UserEntity userSendingMessage;
+	
+	@ManyToOne
+	private AdvertisementEntity forAdvertisement;
+	
+	public MessageEntity() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
-	public Message(long id, String message, User userSendingMessage, Advertisement forAdvertisement) {
+	public MessageEntity(long id, String message, UserEntity userSendingMessage, AdvertisementEntity forAdvertisement) {
 		super();
 		this.id = id;
 		this.message = message;
@@ -28,16 +49,16 @@ public class Message {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public User getUserSendingMessage() {
+	public UserEntity getUserSendingMessage() {
 		return userSendingMessage;
 	}
-	public void setUserSendingMessage(User userSendingMessage) {
+	public void setUserSendingMessage(UserEntity userSendingMessage) {
 		this.userSendingMessage = userSendingMessage;
 	}
-	public Advertisement getForAdvertisement() {
+	public AdvertisementEntity getForAdvertisement() {
 		return forAdvertisement;
 	}
-	public void setForAdvertisement(Advertisement forAdvertisement) {
+	public void setForAdvertisement(AdvertisementEntity forAdvertisement) {
 		this.forAdvertisement = forAdvertisement;
 	}
 	
@@ -50,7 +71,7 @@ public class Message {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Message other = (Message) obj;
+		MessageEntity other = (MessageEntity) obj;
 		if (id != other.id)
 			return false;
 		return true;
@@ -60,6 +81,5 @@ public class Message {
 		return "Message [id=" + id + ", message=" + message + ", userSendingMessage=" + userSendingMessage.getUserName()
 				+ ", forAdvertisement=" + forAdvertisement.getName() + "]";
 	}
-	
 	
 }

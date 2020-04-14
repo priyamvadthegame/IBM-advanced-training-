@@ -2,7 +2,10 @@ package com.springdata.restApi.services;
 
 import java.util.List;
 
+
+
 import com.springdata.restApi.json.Advertisement;
+
 
 public interface AdvertisementService {
 	

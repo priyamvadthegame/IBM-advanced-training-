@@ -1,8 +1,11 @@
 package com.springdata.restApi.entity;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -37,6 +40,10 @@ public class AdvertisementEntity {
 	@ManyToOne
 	private UserEntity userEntity;
 	
+	@OneToMany
+	@JoinColumn(name = "for_advertisement")
+	private Set<MessageEntity> messageSet;
+	
 	public AdvertisementEntity() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -45,18 +52,6 @@ public class AdvertisementEntity {
 	}
 	
 	
-
-	public AdvertisementEntity(long id,String name,String title, String category, String description,String postId, String status,UserEntity userEntity) {
-		super();
-		this.id=id;
-		this.postId = postId;
-		this.status = status;
-		this.title = title;
-		this.name = name;
-		this.category = category;
-		this.description = description;
-		this.userEntity=userEntity;
-	}
 	public AdvertisementEntity(long id,String name,String title, String category, String description,String postId, String status) {
 		super();
 		this.id=id;
@@ -66,20 +61,19 @@ public class AdvertisementEntity {
 		this.name = name;
 		this.category = category;
 		this.description = description;
-		this.userEntity=userEntity;
+		
 	}
 	
 	
 
 
-	public AdvertisementEntity(long id,String name,String title, String category, String description,UserEntity userEntity) {
+	public AdvertisementEntity(long id,String name,String title, String category, String description) {
 		super();
 		this.title = title;
 		this.name = name;
 		this.category = category;
 		this.description = description;
 		this.id=id;
-		this.userEntity=userEntity;
 		this.postId="";
 		this.status="closed";
 	}
@@ -154,6 +148,32 @@ public class AdvertisementEntity {
 		this.userEntity = userEntity;
 	}
 
+	
+
+	public Set<MessageEntity> getMessageSet() {
+		return messageSet;
+	}
+
+
+
+	public void setMessageSet(Set<MessageEntity> messageSet) {
+		this.messageSet = messageSet;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AdvertisementEntity other = (AdvertisementEntity) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
 
 
 	@Override

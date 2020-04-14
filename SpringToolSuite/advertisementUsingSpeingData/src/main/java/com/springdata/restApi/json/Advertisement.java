@@ -3,7 +3,7 @@ package com.springdata.restApi.json;
 public class Advertisement {
 	private String postId,status,title,name,category,description;
 	private long id;
-	private User user;
+	
 
 	public Advertisement() {
 		super();
@@ -14,17 +14,7 @@ public class Advertisement {
 	
 	
 
-	public Advertisement(long id,String name,String title, String category, String description,String postId, String status,User user) {
-		super();
-		this.id=id;
-		this.postId = postId;
-		this.status = status;
-		this.title = title;
-		this.name = name;
-		this.category = category;
-		this.user=user;
-		this.description = description;
-	}
+	
 	public Advertisement(long id,String name,String title, String category, String description,String postId, String status) {
 		super();
 		this.id=id;
@@ -38,14 +28,13 @@ public class Advertisement {
 	
 
 
-	public Advertisement(long id,String name,String title, String category, String description,User user) {
+	public Advertisement(long id,String name,String title, String category, String description) {
 		super();
 		this.title = title;
 		this.name = name;
 		this.category = category;
 		this.description = description;
 		this.id=id;
-		this.user=user;
 		this.postId="";
 		this.status="closed";
 	}
@@ -139,23 +128,15 @@ public class Advertisement {
 
 
 
-	public User getUser() {
-		return user;
-	}
-
-
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-
 
 	@Override
 	public String toString() {
 		return "Advertisement [postId=" + postId + ", status=" + status + ", title=" + title + ", name=" + name
-				+ ", category=" + category + ", description=" + description + ", id=" + id + ", user=" + user + "]";
+				+ ", category=" + category + ", description=" + description + ", id=" + id + "]";
 	}
+
+
+
 	
 
 }
