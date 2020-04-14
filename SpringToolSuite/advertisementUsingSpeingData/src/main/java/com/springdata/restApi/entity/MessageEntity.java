@@ -1,13 +1,12 @@
 package com.springdata.restApi.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.springdata.restApi.json.Advertisement;
-import com.springdata.restApi.json.User;
 
 @Entity
 @Table(name = "messages")
@@ -26,16 +25,18 @@ public class MessageEntity {
 	@ManyToOne
 	private AdvertisementEntity forAdvertisement;
 	
+	@Column(name ="date_of_message")
+	private LocalDateTime dateAndTimeOfMessage;
+	
 	public MessageEntity() {
 		super();
 		
 	}
-	public MessageEntity(long id, String message, UserEntity userSendingMessage, AdvertisementEntity forAdvertisement) {
+	public MessageEntity(long id, String message,LocalDateTime dateAndTimeOfMessage) {
 		super();
 		this.id = id;
 		this.message = message;
-		this.userSendingMessage = userSendingMessage;
-		this.forAdvertisement = forAdvertisement;
+		this.dateAndTimeOfMessage=dateAndTimeOfMessage;
 	}
 	public long getId() {
 		return id;
@@ -63,6 +64,12 @@ public class MessageEntity {
 	}
 	
 	
+	public LocalDateTime getDateAndTimeOfMessage() {
+		return dateAndTimeOfMessage;
+	}
+	public void setDateAndTimeOfMessage(LocalDateTime dateAndTimeOfMessage) {
+		this.dateAndTimeOfMessage = dateAndTimeOfMessage;
+	}
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -78,8 +85,8 @@ public class MessageEntity {
 	}
 	@Override
 	public String toString() {
-		return "Message [id=" + id + ", message=" + message + ", userSendingMessage=" + userSendingMessage.getUserName()
-				+ ", forAdvertisement=" + forAdvertisement.getName() + "]";
+		return "MessageEntity [id=" + id + ", message=" + message + ", userSendingMessage=" + userSendingMessage
+				+ ", forAdvertisement=" + forAdvertisement + ", dateAndTimeOfMessage=" + dateAndTimeOfMessage + "]";
 	}
 	
 }

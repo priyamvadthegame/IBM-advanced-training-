@@ -1,20 +1,23 @@
 package com.springdata.restApi.json;
 
+import java.time.LocalDateTime;
+
 public class Message {
 	private long id;
 	private String message;
 	private User userSendingMessage;
 	private Advertisement forAdvertisement;
+	private LocalDateTime dateAndTimeOfMessage;
 	public Message() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Message(long id, String message, User userSendingMessage, Advertisement forAdvertisement) {
+	public Message(long id, String message,LocalDateTime dateAndTimeOfMessage) {
 		super();
 		this.id = id;
 		this.message = message;
-		this.userSendingMessage = userSendingMessage;
-		this.forAdvertisement = forAdvertisement;
+		this.dateAndTimeOfMessage=dateAndTimeOfMessage;
+		
 	}
 	public long getId() {
 		return id;
@@ -42,6 +45,12 @@ public class Message {
 	}
 	
 	
+	public LocalDateTime getDateAndTimeOfMessage() {
+		return dateAndTimeOfMessage;
+	}
+	public void setDateAndTimeOfMessage(LocalDateTime dateAndTimeOfMessage) {
+		this.dateAndTimeOfMessage = dateAndTimeOfMessage;
+	}
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -57,8 +66,8 @@ public class Message {
 	}
 	@Override
 	public String toString() {
-		return "Message [id=" + id + ", message=" + message + ", userSendingMessage=" + userSendingMessage.getUserName()
-				+ ", forAdvertisement=" + forAdvertisement.getName() + "]";
+		return "Message [id=" + id + ", message=" + message + ", userSendingMessage=" + userSendingMessage
+				+ ", forAdvertisement=" + forAdvertisement + ", dateAndTimeOfMessage=" + dateAndTimeOfMessage + "]";
 	}
 	
 	

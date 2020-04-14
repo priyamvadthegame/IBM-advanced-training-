@@ -1,9 +1,11 @@
 package com.springdata.restApi.json;
 
+import java.time.LocalDateTime;
+
 public class Advertisement implements Comparable<Advertisement> {
 	private String postId,status,title,name,category,description;
 	private long id;
-	
+	private LocalDateTime lastUpdated;
 
 	public Advertisement() {
 		super();
@@ -15,7 +17,7 @@ public class Advertisement implements Comparable<Advertisement> {
 	
 
 	
-	public Advertisement(long id,String name,String title, String category, String description,String postId, String status) {
+	public Advertisement(long id,String name,String title, String category, String description,String postId, String status,LocalDateTime lastUpdated) {
 		super();
 		this.id=id;
 		this.postId = postId;
@@ -24,11 +26,12 @@ public class Advertisement implements Comparable<Advertisement> {
 		this.name = name;
 		this.category = category;
 		this.description = description;
+		this.lastUpdated=lastUpdated;
 	}
 	
 
 
-	public Advertisement(long id,String name,String title, String category, String description) {
+	public Advertisement(long id,String name,String title, String category, String description,LocalDateTime lastUpdated) {
 		super();
 		this.title = title;
 		this.name = name;
@@ -37,6 +40,7 @@ public class Advertisement implements Comparable<Advertisement> {
 		this.id=id;
 		this.postId="";
 		this.status="closed";
+		this.lastUpdated=lastUpdated;
 	}
 	
 	public long getId() {
@@ -102,6 +106,20 @@ public class Advertisement implements Comparable<Advertisement> {
 	
 	
 
+	public LocalDateTime getLastUpdated() {
+		return lastUpdated;
+	}
+
+
+
+
+	public void setLastUpdated(LocalDateTime lastUpdated) {
+		this.lastUpdated = lastUpdated;
+	}
+
+
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -150,7 +168,8 @@ public class Advertisement implements Comparable<Advertisement> {
 	@Override
 	public String toString() {
 		return "Advertisement [postId=" + postId + ", status=" + status + ", title=" + title + ", name=" + name
-				+ ", category=" + category + ", description=" + description + ", id=" + id + "]";
+				+ ", category=" + category + ", description=" + description + ", id=" + id + ", lastUpdated="
+				+ lastUpdated + "]";
 	}
 
 

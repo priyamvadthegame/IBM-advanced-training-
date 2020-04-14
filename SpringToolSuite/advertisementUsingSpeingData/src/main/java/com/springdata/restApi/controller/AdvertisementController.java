@@ -12,10 +12,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springdata.restApi.json.Advertisement;
-
+import com.springdata.restApi.json.Message;
 import com.springdata.restApi.services.AdvertisementService;
 
 
@@ -47,6 +48,22 @@ public class AdvertisementController {
 	@RequestMapping(value="/deletedvbypostid/{postid}",method=RequestMethod.DELETE, produces=MediaType.APPLICATION_JSON_VALUE)
 	public String DeleteAdvByPostId(@RequestHeader String apikey,@PathVariable(name ="postid") String postId) {
 		 return advertisementService.deleteAdvByPostId(apikey, postId);
+	}
+	
+	@RequestMapping(value="/getcategorylist",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public Set<String> getCategoryOfAllAdvertisement() {
+		 return advertisementService.getCatogoriesList();
+	}
+	
+
+	@RequestMapping(value="/sendmessage/{postid}",method=RequestMethod.POST, produces=MediaType.APPLICATION_JSON_VALUE,consumes = MediaType.APPLICATION_JSON_VALUE)
+	public String sendMessageByUser(@RequestHeader String apikey,@PathVariable(name ="postid") String postId,@RequestBody Message message){
+		 return advertisementService.sendMessage(postId, message, apikey);
+	}
+	
+	@RequestMapping(value="/getadvbysearchtext/{searchtext}",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<Advertisement> sendMessageByUser(@PathVariable(name = "searchtext") String searchText){
+		 return advertisementService.getAdvertisementByGivenSearchText(searchText);
 	}
 
 

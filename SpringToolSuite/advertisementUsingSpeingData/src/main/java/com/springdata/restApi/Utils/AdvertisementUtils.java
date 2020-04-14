@@ -27,10 +27,10 @@ public class AdvertisementUtils {
 	
 	public static Advertisement convertAdvEntityToAdvJson(AdvertisementEntity advEntity)
 	{
-		return new Advertisement(advEntity.getId(),advEntity.getName(),advEntity.getTitle(),advEntity.getCategory(),advEntity.getDescription(),advEntity.getPostId(),advEntity.getStatus());
+		return new Advertisement(advEntity.getId(),advEntity.getName(),advEntity.getTitle(),advEntity.getCategory(),advEntity.getDescription(),advEntity.getPostId(),advEntity.getStatus(),advEntity.getLastUpdated());
 	}
 	public static AdvertisementEntity convertAdvJsonToAdvEntity(Advertisement advJson)
 	{
-		return new AdvertisementEntity(advJson.getId(),advJson.getName(),advJson.getTitle(),advJson.getCategory(),advJson.getDescription(),advJson.getPostId(),advJson.getStatus());
+		return new AdvertisementEntity(advJson.getId(),advJson.getName(),advJson.getTitle(),advJson.getCategory(),advJson.getDescription(),advJson.getPostId(),advJson.getStatus(),advJson.getLastUpdated());
 	}
 }

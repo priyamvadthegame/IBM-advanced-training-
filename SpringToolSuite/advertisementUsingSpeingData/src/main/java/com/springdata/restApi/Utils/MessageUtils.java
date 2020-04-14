@@ -7,11 +7,11 @@ public class MessageUtils {
 
 	public static MessageEntity convertMessageJsonToMessageEntity(Message message)
 	{
-		return new MessageEntity(message.getId(),message.getMessage(),UserUtils.convertUserToUserEntity(message.getUserSendingMessage()),AdvertisementUtils.convertAdvJsonToAdvEntity( message.getForAdvertisement()));
+		return new MessageEntity(message.getId(),message.getMessage(),message.getDateAndTimeOfMessage());
 	}
 	
 	public static Message convertMessageEntityToMessageJson(MessageEntity message)
 	{
-		return new Message(message.getId(),message.getMessage(),UserUtils.convertUserEntityToUser(message.getUserSendingMessage()),AdvertisementUtils.convertAdvEntityToAdvJson(message.getForAdvertisement()));
+		return new Message(message.getId(),message.getMessage(),message.getDateAndTimeOfMessage());
 	}
 }

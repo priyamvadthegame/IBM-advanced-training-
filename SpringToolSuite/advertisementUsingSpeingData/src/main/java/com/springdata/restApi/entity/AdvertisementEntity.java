@@ -1,5 +1,6 @@
 package com.springdata.restApi.entity;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -44,6 +45,9 @@ public class AdvertisementEntity {
 	@JoinColumn(name = "for_advertisement")
 	private Set<MessageEntity> messageSet;
 	
+	@Column(name ="date_updated")
+	private LocalDateTime lastUpdated;
+	
 	public AdvertisementEntity() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -52,7 +56,7 @@ public class AdvertisementEntity {
 	}
 	
 	
-	public AdvertisementEntity(long id,String name,String title, String category, String description,String postId, String status) {
+	public AdvertisementEntity(long id,String name,String title, String category, String description,String postId, String status,LocalDateTime lastUpdated) {
 		super();
 		this.id=id;
 		this.postId = postId;
@@ -61,13 +65,13 @@ public class AdvertisementEntity {
 		this.name = name;
 		this.category = category;
 		this.description = description;
-		
+		this.lastUpdated=lastUpdated;
 	}
 	
 	
 
 
-	public AdvertisementEntity(long id,String name,String title, String category, String description) {
+	public AdvertisementEntity(long id,String name,String title, String category, String description,LocalDateTime lastUpdated) {
 		super();
 		this.title = title;
 		this.name = name;
@@ -76,6 +80,7 @@ public class AdvertisementEntity {
 		this.id=id;
 		this.postId="";
 		this.status="closed";
+		this.lastUpdated=lastUpdated;
 	}
 	
 	
@@ -159,6 +164,17 @@ public class AdvertisementEntity {
 	public void setMessageSet(Set<MessageEntity> messageSet) {
 		this.messageSet = messageSet;
 	}
+	
+
+
+	public LocalDateTime getLastUpdated() {
+		return lastUpdated;
+	}
+
+
+	public void setLastUpdated(LocalDateTime lastUpdated) {
+		this.lastUpdated = lastUpdated;
+	}
 
 
 	@Override
@@ -180,7 +196,7 @@ public class AdvertisementEntity {
 	public String toString() {
 		return "AdvertisementEntity [id=" + id + ", name=" + name + ", title=" + title + ", category=" + category
 				+ ", description=" + description + ", status=" + status + ", postId=" + postId + ", userEntity="
-				+ userEntity + "]";
+				+ userEntity + ", lastUpdated=" + lastUpdated + "]";
 	}
 	
 
