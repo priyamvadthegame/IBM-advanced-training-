@@ -2,6 +2,8 @@ package com.springdata.restApi.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.function.Consumer;
 import com.springdata.restApi.entity.AdvertisementEntity;
 import com.springdata.restApi.json.Advertisement;
@@ -14,6 +16,13 @@ public class AdvertisementUtils {
 		Consumer<AdvertisementEntity> consumer=(AdvertisementEntity adv)->newList.add(convertAdvEntityToAdvJson(adv));
 		advEntityList.stream().forEach(consumer);
 		return newList;
+	}
+	public static Set<Advertisement> convertAdvEntitySetToAdvJsonSet(Set<AdvertisementEntity> advEntityList)
+	{
+		Set<Advertisement> newSet=new TreeSet<Advertisement>();
+		Consumer<AdvertisementEntity> consumer=(AdvertisementEntity adv)->newSet.add(convertAdvEntityToAdvJson(adv));
+		advEntityList.stream().forEach(consumer);
+		return newSet;
 	}
 	
 	public static Advertisement convertAdvEntityToAdvJson(AdvertisementEntity advEntity)

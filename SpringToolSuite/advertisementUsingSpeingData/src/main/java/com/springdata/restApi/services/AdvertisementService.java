@@ -1,8 +1,7 @@
 package com.springdata.restApi.services;
 
 import java.util.List;
-
-
+import java.util.Set;
 
 import com.springdata.restApi.json.Advertisement;
 
@@ -11,13 +10,11 @@ public interface AdvertisementService {
 	
 	public Advertisement save(Advertisement advertisement,String key);
 	
-	public List<Advertisement> getAUserAdvList(String key);
+	public Set<Advertisement> getAUserAdvList(String key);
 	
 	public List<Advertisement> getAllAdvertisements();
 	
-	public String updateAdv(String key,Advertisement advertisement);
-	
-	public String deleteAdv(String key,String id);
+	public String deleteAdvByPostId(String key,String id);
 	
 	public List<Advertisement> getAdvertisementByCategory();
 	
@@ -31,7 +28,8 @@ public interface AdvertisementService {
 	
 	public List<String> getCatogoriesListForAParticularUser(String key);
 	
-	
+	public String update(Advertisement advertise,String key);
+	public List<Advertisement> getAdvertisementByPostIdForAParticularUser(String key,String postId);
 
 	
 	

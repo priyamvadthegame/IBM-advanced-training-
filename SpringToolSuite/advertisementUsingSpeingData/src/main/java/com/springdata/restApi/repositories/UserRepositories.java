@@ -13,5 +13,6 @@ package com.springdata.restApi.repositories;
 		List<UserEntity> findByOrderByFirstNameDesc();
 		List<UserEntity> findByUserName(String userName);
 		List<UserEntity> findBySessionId(String sessionId);
+		
 	}
 

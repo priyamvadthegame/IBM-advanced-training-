@@ -1,6 +1,6 @@
 package com.springdata.restApi.json;
 
-public class Advertisement {
+public class Advertisement implements Comparable<Advertisement> {
 	private String postId,status,title,name,category,description;
 	private long id;
 	
@@ -127,6 +127,24 @@ public class Advertisement {
 	}
 
 
+	@Override
+	public int compareTo(Advertisement adv) {
+		
+		if(this.getId()>adv.getId())
+		{
+			return 1;
+		}
+		else if(this.getId()==adv.getId())
+		{
+			return 0;
+		}
+		else
+		{
+			return -1;
+		}
+	}
+
+
 
 
 	@Override
@@ -134,6 +152,8 @@ public class Advertisement {
 		return "Advertisement [postId=" + postId + ", status=" + status + ", title=" + title + ", name=" + name
 				+ ", category=" + category + ", description=" + description + ", id=" + id + "]";
 	}
+
+
 
 
 

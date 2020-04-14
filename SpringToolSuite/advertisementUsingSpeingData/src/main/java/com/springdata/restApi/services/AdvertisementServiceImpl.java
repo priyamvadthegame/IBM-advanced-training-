@@ -1,6 +1,9 @@
 package com.springdata.restApi.services;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,29 +39,89 @@ public class AdvertisementServiceImpl implements AdvertisementService {
 			return null;
 		}
 	}
+	@Override
+	public String update(Advertisement advertise,String key) {
+		UserEntity userEntity=this.getUserUsingSessionId(key);
+		if(userEntity!=null)
+		{	Optional<AdvertisementEntity> option=userEntity.getAdvertisementEntities().stream().filter((AdvertisementEntity adv)->adv.equals(AdvertisementUtils.convertAdvJsonToAdvEntity(advertise))).findAny();
+			if(option.isPresent())
+			{	AdvertisementEntity advToPersist=AdvertisementUtils.convertAdvJsonToAdvEntity(advertise);
+				advToPersist.setUserEntity(userEntity);
+				advertisementRepositories.save(advToPersist);
+				return "Update Succesfull\n"+advertisementRepositories.findById(advertise.getId()).toString();
+			}
+			else
+			{
+				return "no advertisement present of the given id";
+			}
+		}
+		else
+		{
+			return "Login to continue session has expired or user not logged in";
+		}
+	}
+
 
 	@Override
-	public List<Advertisement> getAUserAdvList(String key) {
-		// TODO Auto-generated method stub
-		return null;
+	public Set<Advertisement> getAUserAdvList(String key) {
+		UserEntity userEntity=this.getUserUsingSessionId(key);
+		if(userEntity!=null)
+		{
+			return AdvertisementUtils.convertAdvEntitySetToAdvJsonSet(userEntity.getAdvertisementEntities());
+		}
+		else
+		{
+			return null;
+		}
 	}
 
 	@Override
 	public List<Advertisement> getAllAdvertisements() {
-		// TODO Auto-generated method stub
-		return null;
+		return AdvertisementUtils.convertAdvEntityListToAdvJson(advertisementRepositories.findAll());
+	} 
+	@Override
+	public List<Advertisement> getAdvertisementByPostIdForAParticularUser(String key, String postId) {
+		UserEntity userEntity=this.getUserUsingSessionId(key);
+		if(userEntity!=null)
+		{
+			Optional<AdvertisementEntity> option=userEntity.getAdvertisementEntities().stream().filter((AdvertisementEntity adv)->adv.getPostId().equals(postId)).findAny();
+			if(option.isPresent())
+			{	
+				return AdvertisementUtils.convertAdvEntityListToAdvJson( advertisementRepositories.findByPostId(postId));
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else
+		{
+			return null;
+		}
 	}
 
+	
 	@Override
-	public String updateAdv(String key, Advertisement advertisement) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String deleteAdv(String key, String id) {
-		// TODO Auto-generated method stub
-		return null;
+	public String deleteAdvByPostId(String key, String id) {
+		UserEntity userEntity=this.getUserUsingSessionId(key);
+		if(userEntity!=null)
+		{
+			Optional<AdvertisementEntity> option=userEntity.getAdvertisementEntities().stream().filter((AdvertisementEntity adv)->adv.getPostId().equals(id)).findAny();
+			if(option.isPresent())
+			{	
+				AdvertisementEntity advToBeDeleted=userEntity.getAdvertisementEntities().stream().filter((AdvertisementEntity adv)->adv.getPostId().equals(id)).collect(Collectors.toList()).get(0);
+				advertisementRepositories.delete(advToBeDeleted);
+				return "Deleted succesfully";
+			}
+			else
+			{
+				return "no advertisement present of the given id";
+			}
+		}
+		else
+		{
+			return "Login to continue session has expired or user not logged in";
+		}
 	}
 
 	@Override
@@ -112,5 +175,5 @@ public class AdvertisementServiceImpl implements AdvertisementService {
 			return user;
 		}
 	}
-
+	
 }

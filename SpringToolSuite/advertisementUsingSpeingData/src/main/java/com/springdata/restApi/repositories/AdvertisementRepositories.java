@@ -13,6 +13,6 @@ public interface AdvertisementRepositories extends JpaRepository<AdvertisementEn
 	List<AdvertisementEntity> findByOrderByNameDesc();
 	List<AdvertisementEntity> findByStatus(String status);
 	List<AdvertisementEntity> findById(long id);
-	List<AdvertisementEntity> findByPostId(long postId);
+	List<AdvertisementEntity> findByPostId(String postId);
 }
 

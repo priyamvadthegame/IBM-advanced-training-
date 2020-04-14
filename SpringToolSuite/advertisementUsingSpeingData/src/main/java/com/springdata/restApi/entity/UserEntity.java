@@ -42,7 +42,7 @@ public class UserEntity {
 	private String sessionId;
 	
 	@OneToMany
-	@JoinColumn(name = "User_Id")
+	@JoinColumn(name = "user_entity_id")
 	private Set<AdvertisementEntity> advertisementEntities;
 	
 	@OneToMany

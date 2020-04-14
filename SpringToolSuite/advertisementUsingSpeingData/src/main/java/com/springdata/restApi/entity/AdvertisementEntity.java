@@ -170,7 +170,7 @@ public class AdvertisementEntity {
 		if (getClass() != obj.getClass())
 			return false;
 		AdvertisementEntity other = (AdvertisementEntity) obj;
-		if (id != other.id)
+		if (this.id != other.getId())
 			return false;
 		return true;
 	}
