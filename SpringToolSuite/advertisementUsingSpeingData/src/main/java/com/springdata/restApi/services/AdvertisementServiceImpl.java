@@ -1,10 +1,12 @@
 package com.springdata.restApi.services;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -178,11 +180,133 @@ public class AdvertisementServiceImpl implements AdvertisementService {
 			return null;
 		}
 	}
+	@Override
+	public List<Advertisement> getAdvertisementAfterTheGivenDateOfAUser(String date,String key) {
+		UserEntity userEntity=this.getUserUsingSessionId(key);
+		if(userEntity!=null)
+		{	LocalDate localDate=LocalDate.parse(date);
+			Predicate<AdvertisementEntity> predicate=(AdvertisementEntity adv)->adv.getLastUpdated().toLocalDate().isAfter(localDate);
+			if(userEntity.getAdvertisementEntities().stream().filter(predicate).findAny().isPresent())
+			{
+				return AdvertisementUtils.convertAdvEntityListToAdvJson(userEntity.getAdvertisementEntities().stream().filter(predicate).collect(Collectors.toList()));
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else
+		{
+			return null;
+		}
+
+	}
+	@Override
+	public List<Advertisement> getAdvertisementBeforeTheGivenDateOfAUser(String date,String key) {
+		UserEntity userEntity=this.getUserUsingSessionId(key);
+		if(userEntity!=null)
+		{	LocalDate localDate=LocalDate.parse(date);
+			Predicate<AdvertisementEntity> predicate=(AdvertisementEntity adv)->adv.getLastUpdated().toLocalDate().isBefore(localDate);
+			if(userEntity.getAdvertisementEntities().stream().filter(predicate).findAny().isPresent())
+			{
+				return AdvertisementUtils.convertAdvEntityListToAdvJson(userEntity.getAdvertisementEntities().stream().filter(predicate).collect(Collectors.toList()));
+			}
+			else
+			{
+				return null;
+			}
+		}
+		else
+		{
+			return null;
+		}
+
+	}
+	@Override
+	public List<Advertisement> getAdvertisementBetweenTheGivenDateOfAUser(String date,String key) {
+		String dates[]=date.trim().split(" ");
+		if(dates.length!=2)
+		{
+			return null;
+		}
+		else
+		{
+			UserEntity userEntity=this.getUserUsingSessionId(key);
+			if(userEntity!=null)
+			{	LocalDate localDate1=LocalDate.parse(dates[0]);
+				LocalDate localDate2=LocalDate.parse(dates[1]);
+				Predicate<AdvertisementEntity> predicate=(AdvertisementEntity adv)->adv.getLastUpdated().toLocalDate().isAfter(localDate1)&&adv.getLastUpdated().toLocalDate().isBefore(localDate1);
+				if(userEntity.getAdvertisementEntities().stream().filter(predicate).findAny().isPresent())
+				{
+					return AdvertisementUtils.convertAdvEntityListToAdvJson(userEntity.getAdvertisementEntities().stream().filter(predicate).collect(Collectors.toList()));
+				}
+				else
+				{
+					return null;
+				}
+			}
+		
+			else
+			{
+				return null;
+			}
+		}
+
+	}
+	@Override
+	public List<Advertisement> getAdvertisementEqualToTheGivenDateOfAUser(String date,String key) {
+				
+			UserEntity userEntity=this.getUserUsingSessionId(key);
+			if(userEntity!=null)
+			{	LocalDate localDate=LocalDate.parse(date);
+				
+				Predicate<AdvertisementEntity> predicate=(AdvertisementEntity adv)->adv.getLastUpdated().toLocalDate().compareTo(localDate)==0;
+				if(userEntity.getAdvertisementEntities().stream().filter(predicate).findAny().isPresent())
+				{
+					return AdvertisementUtils.convertAdvEntityListToAdvJson(userEntity.getAdvertisementEntities().stream().filter(predicate).collect(Collectors.toList()));
+				}
+				else
+				{
+					return null;
+				}
+			}
+		
+			else
+			{
+				return null;
+			}
+		}
 
 	@Override
-	public List<Advertisement> getAdvertisementByCategory() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Advertisement> getAdvertisementByCategory(String category) {
+		Optional<Advertisement> option= getAllAdvertisements().stream().filter((Advertisement adv)->adv.getCategory().toLowerCase().equals(category.toLowerCase())).findAny();
+		if(option.isPresent())
+		{
+			return getAllAdvertisements().stream().filter((Advertisement adv)->adv.getCategory().toLowerCase().equals(category.toLowerCase())).collect(Collectors.toList());
+		}
+		else
+		{
+			return null;
+		}
+	}
+	@Override
+	public Set<String> getActionsList() {
+		Set<String> actionsSet=new TreeSet<>();
+		actionsSet.add("get advertisement list");
+		actionsSet.add("get advertisement list by search text");
+		actionsSet.add("get advertisement list by date conditons  < > =");
+		actionsSet.add("get advertisement list by category");
+		actionsSet.add("send message to advertising owner");
+		actionsSet.add("delete advertisement list by postid");
+		actionsSet.add("get advertisement list by post id");
+		actionsSet.add("get category list of advertisement");
+		actionsSet.add("get advertisement of a particular user");
+		actionsSet.add("add advertisement by user");
+		actionsSet.add("update advertisement of a user");
+		actionsSet.add("register user");
+		actionsSet.add("login user");
+		actionsSet.add("logout user");
+		return actionsSet;
 	}
 
 	@Override
@@ -239,6 +363,7 @@ public class AdvertisementServiceImpl implements AdvertisementService {
 		}
 	}
 	
+		
 	
 	
 }

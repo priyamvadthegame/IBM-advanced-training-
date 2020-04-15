@@ -65,8 +65,34 @@ public class AdvertisementController {
 	public List<Advertisement> sendMessageByUser(@PathVariable(name = "searchtext") String searchText){
 		 return advertisementService.getAdvertisementByGivenSearchText(searchText);
 	}
+	@RequestMapping(value="/getadvbeforedate/{date}",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<Advertisement> getAdvBeforeTheGivenDate(@PathVariable(name = "date") String date,@RequestHeader String apikey){
+		 return advertisementService.getAdvertisementBeforeTheGivenDateOfAUser(date, apikey);
+	}
+	@RequestMapping(value="/getadvbetweendates/{date}",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<Advertisement> getAdvBetweenTheGivenDate(@PathVariable(name = "date") String date,@RequestHeader String apikey){
+		 return advertisementService.getAdvertisementBetweenTheGivenDateOfAUser(date, apikey);
+	}
+	@RequestMapping(value="/getadvafterdate/{date}",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<Advertisement> getAdvAfterTheGivenDate(@PathVariable(name = "date") String date,@RequestHeader String apikey){
+		 return advertisementService.getAdvertisementAfterTheGivenDateOfAUser(date, apikey);
+	}
+	@RequestMapping(value="/getadvequaltodate/{date}",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<Advertisement> getAdvEqualToTheGivenDate(@PathVariable(name = "date") String date,@RequestHeader String apikey){
+		 return advertisementService.getAdvertisementEqualToTheGivenDateOfAUser(date, apikey);
+	}
+	@RequestMapping(value="/getadvbycategory/{category}",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<Advertisement> getAdvertisementByCategoryt(@PathVariable(name = "category")String category) {
+		 return advertisementService.getAdvertisementByCategory(category);
+	}
+	
+	@RequestMapping(value="/getactions",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public Set<String> getAllPossibleActions()
+	{
+		return advertisementService.getActionsList();
+	}
 
-
+		
 
 
 }

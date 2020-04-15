@@ -17,7 +17,7 @@ public interface AdvertisementService {
 	
 	public String deleteAdvByPostId(String key,String id);
 	
-	public List<Advertisement> getAdvertisementByCategory();
+	public List<Advertisement> getAdvertisementByCategory(String category);
 	
 	public List<Advertisement> getAdvertisementsByStatus();
 	
@@ -36,7 +36,9 @@ public interface AdvertisementService {
 
 	public List<Advertisement> getAdvertisementByGivenSearchText(String searchText);
 	
-	
-	
-
+	public List<Advertisement> getAdvertisementAfterTheGivenDateOfAUser(String date,String key);
+	public List<Advertisement> getAdvertisementBeforeTheGivenDateOfAUser(String date,String key);
+	public List<Advertisement> getAdvertisementBetweenTheGivenDateOfAUser(String date,String key);
+	public List<Advertisement> getAdvertisementEqualToTheGivenDateOfAUser(String date,String key);
+	public Set<String> getActionsList();
 }
