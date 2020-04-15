@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -73,8 +74,8 @@ public class AdvertisementController {
 	public List<Advertisement> getAdvBetweenTheGivenDate(@PathVariable(name = "date") String date,@RequestHeader String apikey){
 		 return advertisementService.getAdvertisementBetweenTheGivenDateOfAUser(date, apikey);
 	}
-	@RequestMapping(value="/getadvafterdate/{date}",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
-	public List<Advertisement> getAdvAfterTheGivenDate(@PathVariable(name = "date") String date,@RequestHeader String apikey){
+	@RequestMapping(value="/getadvafterdate",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
+	public List<Advertisement> getAdvAfterTheGivenDate(@RequestParam(name = "date") String date,@RequestHeader String apikey){
 		 return advertisementService.getAdvertisementAfterTheGivenDateOfAUser(date, apikey);
 	}
 	@RequestMapping(value="/getadvequaltodate/{date}",method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)

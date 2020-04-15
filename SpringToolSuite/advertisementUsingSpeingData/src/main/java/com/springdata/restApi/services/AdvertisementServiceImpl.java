@@ -184,7 +184,11 @@ public class AdvertisementServiceImpl implements AdvertisementService {
 	public List<Advertisement> getAdvertisementAfterTheGivenDateOfAUser(String date,String key) {
 		UserEntity userEntity=this.getUserUsingSessionId(key);
 		if(userEntity!=null)
-		{	LocalDate localDate=LocalDate.parse(date);
+		{	
+			System.out.println(date);
+			
+			LocalDate localDate=LocalDate.parse(date);
+			System.out.println(localDate);
 			Predicate<AdvertisementEntity> predicate=(AdvertisementEntity adv)->adv.getLastUpdated().toLocalDate().isAfter(localDate);
 			if(userEntity.getAdvertisementEntities().stream().filter(predicate).findAny().isPresent())
 			{
@@ -235,7 +239,7 @@ public class AdvertisementServiceImpl implements AdvertisementService {
 			if(userEntity!=null)
 			{	LocalDate localDate1=LocalDate.parse(dates[0]);
 				LocalDate localDate2=LocalDate.parse(dates[1]);
-				Predicate<AdvertisementEntity> predicate=(AdvertisementEntity adv)->adv.getLastUpdated().toLocalDate().isAfter(localDate1)&&adv.getLastUpdated().toLocalDate().isBefore(localDate1);
+				Predicate<AdvertisementEntity> predicate=(AdvertisementEntity adv)->adv.getLastUpdated().toLocalDate().isAfter(localDate1)&&adv.getLastUpdated().toLocalDate().isBefore(localDate2);
 				if(userEntity.getAdvertisementEntities().stream().filter(predicate).findAny().isPresent())
 				{
 					return AdvertisementUtils.convertAdvEntityListToAdvJson(userEntity.getAdvertisementEntities().stream().filter(predicate).collect(Collectors.toList()));
