@@ -1,0 +1,53 @@
+body,html
+{
+    height: 100%;
+    width: 100%;
+}
+.main-container
+{
+    height: 100%;
+    width: 100%;
+    margin:0;
+    padding: 0;
+}
+
+
+.row1
+{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.register-image
+{
+    height: 100%;
+    width: 100%;
+    background-image: url("images/advertise.jpg");
+    padding: 0;
+}
+.register-form
+{
+    height: 100%;
+    width: 100%;
+}
+.register-image #image-register-page
+{
+    background-repeat: no-repeat;
+}
+.register-page-container
+{
+    padding-top: 70px;
+}
+.info-color
+{
+    background-color: #059EFB;
+}
+.name-row
+{
+    padding-top: 10px;
+}
+.register-form
+{
+    background-color: #FFFFFF;
+}
