@@ -1,0 +1,42 @@
+body,html
+{
+    height: 100%;
+    width: 100%;
+}
+.main-container
+{
+    height: 100%;
+    width: 100%;
+    margin:0;
+    padding: 0;
+}
+
+
+.row1
+{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.login-form
+{
+    margin-left: 23%;
+    margin-right: 28%;
+}
+.inside-login-form-container
+{
+    margin-top: 23%;
+    margin-bottom: 28%;
+
+}
+.info-color
+{
+    background-color: #059EFB;
+}
+.image-login-page
+{
+    height: 350px;
+    width: inherit;
+
+}

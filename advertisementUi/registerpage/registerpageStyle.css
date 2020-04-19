@@ -19,25 +19,20 @@ body,html
     margin: 0;
 }
 
-.register-image
-{
-    height: 100%;
-    width: 100%;
-    background-image: url("images/advertise.jpg");
-    padding: 0;
-}
 .register-form
 {
     height: 100%;
     width: 100%;
+
+    margin-left: 23%;
+    margin-right: 28%;
 }
-.register-image #image-register-page
-{
-    background-repeat: no-repeat;
-}
+
 .register-page-container
 {
-    padding-top: 70px;
+    padding-top: 50px;
+
+
 }
 .info-color
 {
@@ -46,8 +41,4 @@ body,html
 .name-row
 {
     padding-top: 10px;
-}
-.register-form
-{
-    background-color: #FFFFFF;
 }
