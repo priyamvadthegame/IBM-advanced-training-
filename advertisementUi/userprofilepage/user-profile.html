@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Profile</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link href="user-profile.css" rel="stylesheet">
+</head>
+<body>
+<div class="main-navigation ">
+    <nav class="navbar  navbar-expand-sm  navbar-dark main-navbar sticky-top">
+        <ul>
+            <li class="navbar-brand title-navbar text-white">Advertise!!</li>
+        </ul>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="collapse_target">
+            <ul class="navbar-nav  ml-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link active home-navbar text-white" href="../mainadvertisepage/advertisemainpage.html">Home</a>
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle profile-navBar text-white" href="#" id="navbardrop" data-toggle="dropdown">
+                        Profile
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="../userprofilepage/user-profile.html">My Account</a>
+                        <a class="dropdown-item" href="">My Advertisements</a>
+                        <a class="dropdown-item" href="#">Post Advertisements</a>
+                        <a class="dropdown-item" href="#">LogOut</a>
+                    </div>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link login-page text-white" href="../loginpage/login.html">Log In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="../registerpage/userRegister.html">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+</div>
+<div class="container-fluid profile-page-main-container">
+    <div class="container-fluid profile-content-container">
+        <div class="row">
+            <div class="col-md-4 profile-pic-coloumn">
+                <div class="text-center profile-name">
+
+                    <h3 class="text-warning nameofuser">Priyamvad</h3>
+                </div>
+                <img src="images/profile.png" class="embed-responsive profile-pic">
+                <div class="text-center">
+                    <button class="btn  btn-info text-white align-items-center upload-button">
+                        Upload
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-8 profile-details-coloumn">
+                <div>
+                    <h3 class="account-seetings-text">-Account Settings</h3>
+                </div>
+                <div class="account-settings-form ">
+                    <form class="text-center embed-responsive" style="color: #757575;">
+
+                        <div class="form-row name-row">
+                            <div class="col">
+
+                                <div class="md-form">
+                                    <input type="text" id="materialRegisterFormFirstName" class="form-control embed-responsive" placeholder="Priyamvad" disabled>
+                                    <label for="materialRegisterFormFirstName">First name</label>
+                                </div>
+                            </div>
+                            <div class="col">
+
+                                <div class="md-form">
+                                    <input type="email" id="materialRegisterFormLastName" class="form-control" disabled>
+                                    <label for="materialRegisterFormLastName">Last name</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="md-form mt-0">
+                            <input type="email" id="materialRegisterFormEmail" class="disabled form-control"disabled>
+                            <label for="materialRegisterFormEmail">E-mail</label>
+                        </div>
+                        <div class="md-form mt-0">
+                            <input type="email" id="materialRegisterFormUserName" class="disabled form-control" disabled>
+                            <label for="materialRegisterFormUserName">username</label>
+                        </div>
+                        <div class="md-form">
+                            <input type="phone" id="materialRegisterFormPhone" class="disabled form-control" disabled aria-describedby="materialRegisterFormPhoneHelpBlock">
+                            <label for="materialRegisterFormPhone">Phone number</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-info">
+                        Update
+                    </button>
+                </div>
+                <hr><br><br>
+                <div class="change-password">
+                    <h3 class="change-Password text">-Change Password</h3>
+                    <div class="change-Password-form">
+                        <form class="text-center embed-responsive " style="color: #757575;">
+                            <div class="md-form mt-0">
+                                <input type="password" id="oldpassword" class="disabled form-control">
+                                <label for="oldpassword">Enter Old Password</label>
+                            </div>
+                            <div class="md-form mt-0">
+                                <input type="password" id="changedPassword" class="disabled form-control">
+                                <label for="changedPassword">Enter New Password</label>
+                            </div>
+
+                    </form>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-info">
+                        Change-Password
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="../bootstrap/js/bootstrap.js"></script>
+</body>
+</html>

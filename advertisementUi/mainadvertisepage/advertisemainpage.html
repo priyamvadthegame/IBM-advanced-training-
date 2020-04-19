@@ -1,10 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Home</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Advertisement Home</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link href="mainpage.css" rel="stylesheet">
 </head>
 <body>
+<div class="main-navigation ">
+    <nav class="navbar  navbar-expand-sm  navbar-dark main-navbar sticky-top">
+        <ul>
+            <li class="navbar-brand title-navbar text-white">Advertise!!</li>
+        </ul>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
+
+        <div class="collapse navbar-collapse" id="collapse_target">
+             <ul class="navbar-nav  ml-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link active home-navbar text-white" href="../mainadvertisepage/advertisemainpage.html">Home</a>
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle profile-navBar text-white" href="#" id="navbardrop" data-toggle="dropdown">
+                    Profile
+                 </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="../userprofilepage/user-profile.html">My Account</a>
+                        <a class="dropdown-item" href="">My Advertisements</a>
+                        <a class="dropdown-item" href="#">Post Advertisements</a>
+                        <a class="dropdown-item" href="#">LogOut</a>
+                    </div>
+
+            </li>
+                <li class="nav-item">
+                    <a class="nav-link login-page text-white" href="../loginpage/login.html">Log In</a>
+             </li>
+                 <li class="nav-item">
+                    <a class="nav-link text-white" href="../registerpage/userRegister.html">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+
+        </nav>
+</div>
+<div class="search-navbar  " >
+    <nav class="navbar navbar-light navbar-expand-sm search-navbar justify-content-between">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle filterby-navbar " href="#" id="filter-drop" data-toggle="dropdown">
+                    filter
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">category</a>
+                    <a class="dropdown-item" href="#">post_user</a>
+                    <a class="dropdown-item" href="#">date</a>
+                    <a class="dropdown-item" href="#">name</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="../bootstrap/js/bootstrap.js"></script>
 </body>
 </html>

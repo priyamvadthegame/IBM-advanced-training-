@@ -1,0 +1,28 @@
+.main-navbar
+{
+    background-color: black;
+    z-index: 1;
+
+}
+.search-navbar
+{
+    background-color:white;
+}
+
+body,html
+{
+    height: 100%;
+    width: 100%;
+}
+
+.filterby-navbar
+{
+
+    margin-right: 40px;
+
+}
+
+.main-navigation
+{
+
+}

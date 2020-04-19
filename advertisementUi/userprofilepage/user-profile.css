@@ -1,0 +1,49 @@
+.main-navbar
+{
+    background-color: black;
+    z-index: 1;
+
+}
+.search-navbar
+{
+    background-color:white;
+}
+
+body,html
+{
+    height: 100%;
+    width: 100%;
+}
+
+.filterby-navbar
+{
+
+    margin-right: 40px;
+
+}
+
+.profile-page-main-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.profile-name
+{
+    display: inline-flex;
+    padding-bottom: 50px;
+    margin-top: 15px;
+
+}
+.account-settings-form
+{
+    margin-left: 157px;
+    margin-right: 159px;
+    margin-top: 20px;
+}
+.change-Password-form
+{
+    margin-left: 157px;
+    margin-right: 159px;
+    margin-top: 20px;
+}
