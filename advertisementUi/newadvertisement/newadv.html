@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Advertisement</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body >
+<nav class="navbar navbar-expand-sm  navbar-dark main-navbar sticky-top " style="background-color: black">
+    <ul>
+        <li class="navbar-brand title-navbar text-white">Advertise!!</li>
+    </ul>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="collapse_target">
+        <ul class="navbar-nav  ml-auto">
+
+            <li class="nav-item">
+                <a class="nav-link active home-navbar text-white" href="../mainadvertisepage/advertisemainpage.html">Home</a>
+            </li>
+            <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle profile-navBar text-white" href="#" id="navbardrop" data-toggle="dropdown">
+                    Profile
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="../userprofilepage/user-profile.html">My Account</a>
+                    <a class="dropdown-item" href="">My Advertisements</a>
+                    <a class="dropdown-item" href="../newadvertisement/newadv.html">Post Advertisements</a>
+                    <a class="dropdown-item" href="#">LogOut</a>
+                </div>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link login-page text-white" href="../loginpage/login.html">Log In</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="../registerpage/userRegister.html">Sign Up</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+<div class="py-5" style="	min-height: 200px;">
+    <h1 style="font-family:courier; text-align: right; margin-top: -20px; margin-bottom: 20px; margin-right: 350px;"> New Advertisement</h1>
+    <div class="container">
+        <div class="row justify-content-end mb-2 text-center" style="">
+            <div class="col-md-4 rounded border border-dark" style="padding: 20px;">
+                <h5 class="" style="font-family:courier; text-align: left;">Please enter the following details.</h5>
+                <input type="text" class="form-control" placeholder="Enter Title" id="form11"><br>
+                <input type="text" class="form-control" placeholder="Enter Name" id="form12"><br>
+                <div class="form-group">
+                    <label for="sel1" class="text-left" style="font-family:verdana; margin-left: -200px;">Select category:</label>
+                    <select class="form-control" id="sel1">
+                        <option></option>
+                        <option>Hardware</option>
+                        <option>Software</option>
+                        <option>Furniture</option>
+                        <option>Mobile</option>
+                    </select>
+                </div>
+                <input type="text" name="description" placeholder="Enter description"class="form-control"><br>
+                <div class="col-md-12 justify-content-center" style="	min-width: 50px;"><a class="btn btn-info btn-md active text-center btn-block " href="#"  style="" >Post Ad!</a><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="../bootstrap/js/bootstrap.js"></script>
+</body>
+</html>
