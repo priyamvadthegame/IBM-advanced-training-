@@ -120,7 +120,6 @@ class CurrentAccount extends Account
 
 let savingsAccount,currentAccount;
 
-
 function createObject()
 {
     savingsAccount=new SavingsAccount("priyam",101,50000,10);
