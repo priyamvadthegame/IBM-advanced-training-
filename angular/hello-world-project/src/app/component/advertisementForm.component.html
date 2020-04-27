@@ -1,0 +1,53 @@
+<html>
+<body>
+<div>
+<form>
+    <label for="title">Title</label>
+    <input type="text" id="title" #title [value]="titlep" disabled />
+    <br><br>
+    <label for="name">Name</label>
+    <input type="text" id="name" #name disabled [value]="namep"/>
+    <br><br>
+    <label for="categoryy">Select category:</label>
+    <select id="categoryy"  #dropdown >
+        <option disabled>Select category</option>
+        <option *ngFor="let category of categories">{{category}}</option>
+    </select>
+    <br><br>
+    <label for="desc">Description</label>
+    <textarea id="desc" #desc  ></textarea>
+    <br><br>
+    <button (click)="submit(title.value,name.value,dropdown.value,desc.value,$event)">submit</button>
+
+</form>
+
+<hr>
+
+<table>
+    <tr>
+        <th>name</th>
+        <th>title</th>
+        <th>category</th>
+        <th>description</th>
+    </tr>
+    <tbody>
+        <tr *ngFor="let elements of array">
+  <td>
+    {{elements.names}}
+  </td>
+  <td>
+    {{elements.title}}
+  </td>
+  <td>
+    {{elements.category}}
+  </td>
+  <td>
+    {{elements.description}}
+  </td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+</body>
+</html>
